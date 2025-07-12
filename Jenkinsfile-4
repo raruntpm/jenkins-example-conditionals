@@ -1,18 +1,15 @@
 pipeline {
-  agent none
+  agent any
   triggers { 
     cron('* * * * *') 
   }
   stages {
     stage('Example Deploy') {
-      agent {
-        label 'linux'
-      }
       when {
         triggeredBy 'TimerTrigger'
       }
       steps {
-        sh 'echo Deploying'
+        echo 'echo Deploying'
       }
     }
   }
