@@ -1,15 +1,12 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Example Deploy') {
-      agent {
-        label 'linux'
-      }
       when {
         triggeredBy 'TimerTrigger'
       }
       steps {
-        sh 'echo Deploying'
+        echo 'echo Deploying'
       }
     }
   }
